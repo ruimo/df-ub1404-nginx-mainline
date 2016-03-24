@@ -52,4 +52,6 @@ EXPOSE 80
 EXPOSE 443
 EXPOSE 2201
 
+RUN mkdir /var/log/nginx
+
 CMD ["/usr/bin/monit", "-I", "-c", "/etc/monit/monitrc"]
