@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Shisei Hanai<ruimo.uno@gmail.com>
 
 RUN apt-get update
@@ -8,10 +8,10 @@ RUN apt-get install -y wget
 # Set nginx mainline repository
 RUN cd /tmp && \
   wget http://nginx.org/keys/nginx_signing.key && \
-  sudo apt-key add nginx_signing.key
+  apt-key add nginx_signing.key
 
-RUN echo "deb http://nginx.org/packages/mainline/ubuntu/ trusty nginx" >> /etc/apt/sources.list
-RUN echo "deb-src http://nginx.org/packages/mainline/ubuntu/ trusty nginx" >> /etc/apt/sources.list
+RUN echo "deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx" >> /etc/apt/sources.list
+RUN echo "deb-src http://nginx.org/packages/mainline/ubuntu/ xenial nginx" >> /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get install -y nginx monit openssh-server w3m
